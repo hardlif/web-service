@@ -1,0 +1,50 @@
+server:
+  port: 8081
+  # nacos 地址
+spring:
+  application:
+    name: web-service-system
+  cloud:
+    nacos:
+      discovery:
+#        server-addr: 192.168.1.37:8848
+        server-addr: localhost:8848
+      config:
+#        server-addr: 192.168.1.37:8848
+        server-addr: localhost:8848
+
+  #   数据库
+  datasource:
+    url: jdbc:mysql://192.168.1.37:3306/PanDataBase
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#        server-addr: localhost:8848
+# 文件存储路径
+file:
+  mac:
+    path: ~/file/
+    avatar: ~/avatar/
+  linux:
+    path: /home/eladmin/file/
+    avatar: /home/eladmin/avatar/
+  windows:
+    path: C:\sk-admin\file\
+    avatar: C:\sk-admin\avatar\
+  # 文件大小 /M
+  maxSize: 100
+  avatarMaxSize: 5
+jwt:
+  header: Authorization
+  # 令牌前缀
+  token-start-with: Bearer
+  # 令牌过期时间 此处单位/毫秒 ，默认4小时，可在此网站生成 https://www.convertworld.com/zh-hans/time/milliseconds.html
+  token-validity-in-seconds: 14400000
+  # 在线用户key
+  online-key: online-token-
+#  minio
+minio:
+  endpoint: http://192.168.1.37:9000
+  access-key: zhaowang
+  secret-key: zhaowang137
+  bucket: minio-upload
